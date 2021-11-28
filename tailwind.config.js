@@ -6,7 +6,11 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'cool': ['Inter', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
