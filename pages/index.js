@@ -1,82 +1,63 @@
-import Head from 'next/head'
-
+import Head from "next/head";
+import Link from "next/link";
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="font-cool font-semibold text-base sm:text-xl">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>LONDRY | One tap order</title>
       </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
+      <div className="fixed w-screen px-8 sm:px-32 py-4 sm:py-6 flex justify-between">
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <a>Login</a>
+      </div>
+      <div className="px-8 sm:px-32 py-4 min-h-screen min-w-screen flex flex-wrap justify-between items-center content-center bg-gradient-to-br from-white to-blue-300">
+        <div>
+          <div className="flex justify-start items-end">
+            <p className="font-black text-8xl sm:text-9xl">
+              LON
+              <br />
+              DRY
             </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            <img
+              src="/images/char.png"
+              alt="char"
+              className="max-h-48 sm:max-h-72"
+            />
+          </div>
+          <p className="text-xl sm:text-3xl font-bold">
+            Laundry just in couple of click
+          </p>
         </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+        <div className="mt-16 xl:mt-0">
+          <p>Let's proceed your order 🎉</p>
+          <div className="max-w-2xl grid gap-2 sm:gap-4 grid-cols-2 my-4 xl:my-8">
+            <input
+              type="text"
+              placeholder="Address e.g Jalan No.5 Imam Ghazali"
+              className="col-span-2 w-full border-2 sm:border-4 outline-none focus:outline-none focus:border-blue-300 active:outline-none p-2 sm:p-6 font-semibold rounded-lg sm:rounded-2xl text-xs sm:text-base md:text-xl"
+            />
+            <input
+              type="text"
+              placeholder="On behalf of..."
+              className="w-full border-2 sm:border-4 outline-none focus:outline-none focus:border-blue-300 active:outline-none p-2 sm:p-6 font-semibold rounded-lg sm:rounded-2xl text-xs sm:text-base md:text-xl"
+            />
+            <input
+              type="text"
+              placeholder="Amount in Kg"
+              className="w-full border-2 sm:border-4 outline-none focus:outline-none focus:border-blue-300 active:outline-none p-2 sm:p-6 font-semibold rounded-lg sm:rounded-2xl text-xs sm:text-base md:text-xl"
+            />
+            <div></div>
+            <button className="p-2 sm:p-6 font-semibold rounded-lg sm:rounded-2xl bg-blue-500 text-white focus:ring-blue-500 focus:ring-offset-2 focus:ring-2 sm:focus:ring-4">
+              Order Now
+            </button>
+          </div>
+          <p className="text-xs sm:text-sm">
+            *We'll come to your home for estimated time of 15 minutes
+          </p>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
