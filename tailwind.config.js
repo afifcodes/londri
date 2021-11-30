@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cool: ["Inter", "sans-serif"],
+        cool: ["Gilroy", "sans-serif"],
       },
     },
   },
