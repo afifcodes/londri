@@ -1,7 +1,17 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useContext } from "react";
+import { UserContext } from "@utils/UserContext";
 export default function Navbar() {
+  const user = useContext(UserContext);
   const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("londry");
+    user.setToken("");
+    user.setIsSigned(false);
+    router.reload("/");
+  };
   return (
     <div className="fixed w-screen">
       <div className="max-w-[100rem] m-auto px-8 sm:px-32 py-4 sm:py-6 flex justify-between">
@@ -31,15 +41,26 @@ export default function Navbar() {
               Order
             </a>
           </Link>
-          <Link href="/login">
+          {user.isSigned ? (
             <a
+              onClick={handleLogout}
               className={`${
                 router.pathname.includes("login") ? "text-blue-500" : ""
-              } font-semibold outline-none focus:outline-none active:outline-none`}
+              } cursor-pointer font-semibold outline-none focus:outline-none active:outline-none`}
             >
-              Login
+              Logout
             </a>
-          </Link>
+          ) : (
+            <Link href="/login">
+              <a
+                className={`${
+                  router.pathname.includes("login") ? "text-blue-500" : ""
+                } font-semibold outline-none focus:outline-none active:outline-none`}
+              >
+                Login
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </div>
