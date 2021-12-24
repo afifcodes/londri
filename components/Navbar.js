@@ -13,7 +13,7 @@ export default function Navbar() {
     router.reload("/");
   };
   return (
-    <div className="fixed w-screen">
+    <div className="fixed w-screen backdrop-blur-xl">
       <div className="max-w-[100rem] m-auto px-8 sm:px-32 py-4 sm:py-6 flex justify-between">
         <Link href="/">
           <a className="leading-4 font-extrabold">
@@ -32,15 +32,29 @@ export default function Navbar() {
               Search
             </a>
           </Link>
-          <Link href="/">
-            <a
-              className={`${
-                router.pathname === "/" ? "text-blue-500" : ""
-              } font-semibold outline-none focus:outline-none active:outline-none`}
-            >
-              Order
-            </a>
-          </Link>
+          {user.isSigned ? (
+            <Link href="/transactions">
+              <a
+                className={`${
+                  router.pathname.includes("transactions")
+                    ? "text-blue-500"
+                    : ""
+                } font-semibold outline-none focus:outline-none active:outline-none`}
+              >
+                Transactions
+              </a>
+            </Link>
+          ) : (
+            <Link href="/">
+              <a
+                className={`${
+                  router.pathname === "/" ? "text-blue-500" : ""
+                } font-semibold outline-none focus:outline-none active:outline-none`}
+              >
+                Order
+              </a>
+            </Link>
+          )}
           {user.isSigned ? (
             <a
               onClick={handleLogout}

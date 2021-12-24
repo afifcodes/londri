@@ -6,6 +6,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [isSigned, setIsSigned] = useState(false);
+  const [done, setDone] = useState(false);
 
   useEffect(async () => {
     try {
@@ -14,9 +15,11 @@ export const UserProvider = ({ children }) => {
       if (systemToken) {
         setToken(systemToken);
         setIsSigned(true);
+        setDone(true);
       }
     } catch (e) {
       setIsSigned(false);
+      setDone(true);
     }
   }, []);
 
@@ -27,6 +30,8 @@ export const UserProvider = ({ children }) => {
         setToken,
         isSigned,
         setIsSigned,
+        done,
+        setDone,
       }}
     >
       {children}
